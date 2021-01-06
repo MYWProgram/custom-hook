@@ -15,6 +15,7 @@ module.exports = {
     'plugin:unicorn/recommended',
     'plugin:promise/recommended',
     'plugin:@typescript-eslint/recommended',
+    // ! 解决 ESLint 和 Prettier 的规范冲突，放在最后。
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
@@ -38,6 +39,7 @@ module.exports = {
     }
   },
   rules: {
+    // ! 解决在 ts、tsx 文件中引入其他文件模块报错。
     'import/extensions': [
       ERROR,
       'ignorePackages',
@@ -47,6 +49,7 @@ module.exports = {
         js: 'never'
       }
     ],
+    // ! 解决 webpack-merge 报错：'webpack-merge' should be listed in the project's dependencies, not devDependencies.
     'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
     'import/prefer-default-export': OFF,
     'import/no-unresolved': ERROR,

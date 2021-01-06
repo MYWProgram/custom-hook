@@ -2,7 +2,7 @@ const path = require('path');
 
 const isDev = process.env.NODE_ENV !== 'production';
 const SERVER_HOST = 'localhost';
-const SERVER_PORT = 9000;
+const SERVER_PORT = 9527;
 const PROJECT_PATH = path.resolve(__dirname, '../');
 const PROJECT_NAME = path.parse(PROJECT_PATH).name;
 // * modules 缓存，开启后可加快二次编译速度。

@@ -13,6 +13,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "baseUrl": "./",
+    // * 映射路径配置，需同步 webpack.common.js 中的路径别名配置。
     "paths": {
       "Src/*": ["src/*"],
       "Routes/*": ["src/routes/*"],
