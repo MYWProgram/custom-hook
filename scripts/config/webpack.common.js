@@ -84,7 +84,8 @@ module.exports = {
         // * 避开对 antd 的处理，下面会做单独处理。
         exclude: /node_modules/
       },
-      {
+      // * 单独处理 antd 样式。
+      !isDev && {
         test: /\.css$/,
         use: [
           'style-loader',
@@ -96,19 +97,6 @@ module.exports = {
           }
         ],
         exclude: /src/
-      },
-      // * 单独处理 antd 样式。
-      {
-        test: /\.less$/,
-        use: [
-          ...getCssLoaders(2),
-          {
-            loader: 'less-loader',
-            options: {
-              sourceMap: isDev
-            }
-          }
-        ]
       },
       {
         test: /\.scss$/,
