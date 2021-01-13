@@ -16,6 +16,7 @@ const getCssLoaders = importLoaders => [
     options: {
       modules: true,
       sourceMap: isDev,
+      // * 指定在 css-loader 前应用的 loader 的数量。
       importLoaders
     }
   },
@@ -79,10 +80,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', ...getCssLoaders(1)],
+        use: [...getCssLoaders(0)],
+        // * 避开对 antd 的处理，下面会做单独处理。
         exclude: /node_modules/
       },
-      // * 单独处理 antd 样式，避免模块化 css 文件影响。
       {
         test: /\.css$/,
         use: [
@@ -96,6 +97,7 @@ module.exports = {
         ],
         exclude: /src/
       },
+      // * 单独处理 antd 样式。
       {
         test: /\.less$/,
         use: [
