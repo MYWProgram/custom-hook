@@ -4,43 +4,68 @@ const CopyPlugin = require('copy-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const getCSSModuleLocalIdent = require('../utils/getCssModuleLocalIdent');
 const { isDev, PROJECT_PATH, IS_OPEN_HARD_SOURCE } = require('../constants');
 
-const getCssLoaders = importLoaders => [
-  isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-  {
-    loader: 'css-loader',
-    options: {
-      modules: true,
-      sourceMap: isDev,
-      // * 指定在 css-loader 前应用的 loader 的数量。
-      importLoaders
+const cssRegex = /\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
+
+// ? 配置样式相关 loader 的工具函数。
+const getStyleLoaders = (cssOptions, preProcessor) => {
+  const loaders = [
+    // isDev && 'style-loader',
+    // !isDev && {
+    //   loader: MiniCssExtractPlugin.loader
+    // },
+    'style-loader',
+    {
+      loader: require.resolve('css-loader'),
+      options: cssOptions
+    },
+    {
+      loader: 'postcss-loader',
+      options: {
+        ident: 'postcss',
+        plugins: [
+          // * 修复一些和 flex 布局相关的 bug.
+          require('postcss-flexbugs-fixes'),
+          require('postcss-preset-env')({
+            autoprefixer: {
+              grid: true,
+              flexbox: 'no-2009'
+            },
+            stage: 3
+          }),
+          // * 从 browserlist 中按需使用 normalize.css 中的样式。
+          require('postcss-normalize')
+        ],
+        sourceMap: isDev
+      }
     }
-  },
-  {
-    loader: 'postcss-loader',
-    options: {
-      ident: 'postcss',
-      plugins: [
-        // * 修复一些和 flex 布局相关的 bug.
-        require('postcss-flexbugs-fixes'),
-        require('postcss-preset-env')({
-          autoprefixer: {
-            grid: true,
-            flexbox: 'no-2009'
-          },
-          stage: 3
-        }),
-        // * 从 browserlist 中按需使用 normalize.css 中的样式。
-        require('postcss-normalize')
-      ],
-      sourceMap: isDev
-    }
+  ].filter(Boolean);
+  if (preProcessor) {
+    loaders.push(
+      {
+        loader: require.resolve('resolve-url-loader'),
+        options: {
+          sourceMap: isDev,
+          root: resolve(PROJECT_PATH, './src')
+        }
+      },
+      {
+        loader: require.resolve(preProcessor),
+        options: {
+          sourceMap: true
+        }
+      }
+    );
   }
-];
+  return loaders;
+};
 
 module.exports = {
   devServer: {
@@ -79,14 +104,18 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        use: [...getCssLoaders(0)],
-        // * 避开对 antd 的处理，下面会做单独处理。
-        exclude: /node_modules/
+        test: cssRegex,
+        // * 避开对 antd 样式处理。
+        exclude: /node_modules/,
+        use: getStyleLoaders({
+          importLoaders: 1,
+          sourceMap: isDev
+        }),
+        sideEffects: true
       },
-      // * 单独处理 antd 样式。
-      !isDev && {
-        test: /\.css$/,
+      {
+        test: cssRegex,
+        exclude: /src/,
         use: [
           'style-loader',
           {
@@ -95,20 +124,32 @@ module.exports = {
               sourceMap: isDev
             }
           }
-        ],
-        exclude: /src/
+        ]
       },
       {
-        test: /\.scss$/,
-        use: [
-          ...getCssLoaders(2),
+        test: sassRegex,
+        exclude: sassModuleRegex,
+        use: getStyleLoaders(
           {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isDev
+            importLoaders: 3,
+            sourceMap: isDev
+          },
+          'sass-loader'
+        ),
+        sideEffects: true
+      },
+      {
+        test: sassModuleRegex,
+        use: getStyleLoaders(
+          {
+            importLoaders: 3,
+            sourceMap: isDev,
+            modules: {
+              getLocalIdent: getCSSModuleLocalIdent
             }
-          }
-        ]
+          },
+          'sass-loader'
+        )
       },
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -185,14 +226,16 @@ module.exports = {
       }
     }),
     // * 大大提高二次编译速度。
-    IS_OPEN_HARD_SOURCE && new HardSourceWebpackPlugin(),
-    !isDev &&
-      // * css 样式拆分，抽离公共代码。
-      new MiniCssExtractPlugin({
-        filename: 'css/[name].[contenthash:8].css',
-        chunkFilename: 'css/[name].[contenthash:8].css',
-        ignoreOrder: false
-      })
+    IS_OPEN_HARD_SOURCE && new HardSourceWebpackPlugin()
+    // !isDev &&
+    //   // * css 样式拆分，抽离公共代码。
+    //   new MiniCssExtractPlugin({
+    //     // filename: 'css/[name].[contenthash:8].css',
+    //     // chunkFilename: 'css/[name].[contenthash:8].css'
+    //     // ignoreOrder: false
+    //     filename: 'static/css/[name].[contenthash:8].css',
+    //     chunkFilename: 'static/css/[name].[contenthash:8].chunk.css'
+    //   })
   ].filter(Boolean),
   // ! 剥离一些依赖，采用 CDN 的形式进行加载；需同步在入口文件 public/index.html 中进行 CDN 的引入。
   externals: {
