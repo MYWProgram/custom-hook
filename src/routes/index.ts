@@ -1,93 +1,56 @@
 import { lazy } from 'react';
 
-// ? useInputBind.
-const InputBind = lazy(() => import(/* webpackChunkName: "useInputBind" */ 'Pages/BindElement/InputBind'));
-// ? useCheckboxBind.
-const CheckboxBind = lazy(() => import(/* webpackChunkName: "useCheckboxBind" */ 'Pages/BindElement/CheckboxBind'));
-// ? useTextSelection.
-const TextSelectionBind = lazy(
-  () => import(/* webpackChunkName: "useTextSelection" */ 'Pages/BindElement/TextSelectionBind')
-);
-// ? useDrag & useDrop.
-const DragDrop = lazy(() => import(/* webpackChunkName: "useDragDrop" */ 'Pages/DraggableElement'));
-// ? useSize.
-const WindowResize = lazy(() => import(/* webpackChunkName: "useSize" */ 'Pages/ResizeObserver'));
-// ? useScroll.
-const GetEleScrollOptions = lazy(
-  () => import(/* webpackChunkName: "useScroll" */ 'Pages/ScrollOptions/GetEleScrollOptions')
-);
-// ? useVirtualList.
-const VirtualList = lazy(() => import(/* webpackChunkName: useVirtualList */ 'Pages/ScrollOptions/VirtualList'));
-// ? useInterval.
-const Interval = lazy(() => import(/* webpackChunkName: "useInterval" */ 'Pages/Timer'));
-// ? useHistory.
-const TodoHistoryManager = lazy(() => import(/* webpackChunkName: "useHistory" */ 'Pages/State'));
-// ? useDebounce.
-const DebouncedInputValue = lazy(
-  () => import(/* webpackChunkName: "useDebounce" */ 'Pages/Debounce/DebouncedInputValue')
-);
-// ? useDebounceFn.
-const DebouncedFunction = lazy(
-  () => import(/* webpackChunkName: "useDebounceFn" */ 'Pages/Debounce/DebouncedFunction')
-);
-// ? useThrottle.
-const ThrottledInputValue = lazy(
-  () => import(/* webpackChunkName: "useThrottle" */ 'Pages/Throttle/ThrottledInputValue')
-);
-// ? useThrottleFn.
-const ThrottledFunction = lazy(() => import(/* webpackChunkName: "useThrottleFn" */ 'Pages/Throttle/ThrottleFunction'));
-
 export const routes = [
   {
     path: '/BindElement/InputBind',
-    component: InputBind
+    component: lazy(() => import(/* webpackChunkName: "useInputBind" */ 'Pages/BindElement/InputBind'))
   },
   {
     path: '/BindElement/CheckboxBind',
-    component: CheckboxBind
+    component: lazy(() => import(/* webpackChunkName: "useCheckboxBind" */ 'Pages/BindElement/CheckboxBind'))
   },
   {
     path: '/BindElement/TextSelectionBind',
-    component: TextSelectionBind
+    component: lazy(() => import(/* webpackChunkName: "useTextSelection" */ 'Pages/BindElement/TextSelectionBind'))
   },
   {
     path: '/DraggableElement/DragDrop',
-    component: DragDrop
+    component: lazy(() => import(/* webpackChunkName: "useDragDrop" */ 'Pages/DraggableElement'))
   },
   {
     path: '/ResizeObserver/WindowResize',
-    component: WindowResize
+    component: lazy(() => import(/* webpackChunkName: "useSize" */ 'Pages/ResizeObserver'))
   },
   {
     path: '/ScrollOptions/GetEleScrollOptions',
-    component: GetEleScrollOptions
+    component: lazy(() => import(/* webpackChunkName: "useScroll" */ 'Pages/ScrollOptions/GetEleScrollOptions'))
   },
   {
     path: '/ScrollOptions/VirtualList',
-    component: VirtualList
+    component: lazy(() => import(/* webpackChunkName: useVirtualList */ 'Pages/ScrollOptions/VirtualList'))
   },
   {
     path: '/Timer/Interval',
-    component: Interval
+    component: lazy(() => import(/* webpackChunkName: "useInterval" */ 'Pages/Timer'))
   },
   {
     path: '/State/TodoHistoryManager',
-    component: TodoHistoryManager
+    component: lazy(() => import(/* webpackChunkName: "useHistory" */ 'Pages/State'))
   },
   {
     path: '/Debounce/DebouncedInputValue',
-    component: DebouncedInputValue
+    component: lazy(() => import(/* webpackChunkName: "useDebounce" */ 'Pages/Debounce/DebouncedInputValue'))
   },
   {
     path: '/Debounce/DebouncedFunction',
-    component: DebouncedFunction
+    component: lazy(() => import(/* webpackChunkName: "useDebounceFn" */ 'Pages/Debounce/DebouncedFunction'))
   },
   {
     path: '/Throttle/ThrottledInputValue',
-    component: ThrottledInputValue
+    component: lazy(() => import(/* webpackChunkName: "useThrottle" */ 'Pages/Throttle/ThrottledInputValue'))
   },
   {
     path: '/Throttle/ThrottledFunction',
-    component: ThrottledFunction
+    component: lazy(() => import(/* webpackChunkName: "useThrottleFn" */ 'Pages/Throttle/ThrottleFunction'))
   }
 ];
