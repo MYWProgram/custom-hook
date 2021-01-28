@@ -1,5 +1,5 @@
 import React from 'react';
-import useCheckboxBind from 'Utils/CustomHooks/Bind/useCheckboxBind';
+import { useCheckboxBind } from 'Utils/CustomHooks';
 import { Button, Checkbox, Col, Row } from 'antd';
 import styles from './index.module.scss';
 

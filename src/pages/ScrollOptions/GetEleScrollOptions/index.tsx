@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import useScroll from 'Src/utils/CustomHooks/Scroll/useScroll';
+import { useScroll } from 'Src/utils/CustomHooks';
 import styles from './index.module.scss';
 
 const GetEleScrollOptions: React.FC = (): JSX.Element => {

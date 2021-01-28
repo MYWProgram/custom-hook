@@ -1,12 +1,13 @@
 // ? 一级菜单列表。
 export const rootSubmenuKeys = [
   'BindElement',
+  'Dom',
+  'Debounce',
   'DraggableElement',
   'ResizeObserver',
+  'State',
   'ScrollOptions',
   'Timer',
-  'State',
-  'Debounce',
   'Throttle'
 ];
 // ? 子级菜单列表。
@@ -29,6 +30,28 @@ export const hookSubmenuList = [
     ]
   },
   {
+    name: 'Dom',
+    children: [
+      {
+        name: 'ClickAway',
+        path: '/Dom/ClickAway'
+      }
+    ]
+  },
+  {
+    name: 'Debounce',
+    children: [
+      {
+        name: 'DebouncedInputValue',
+        path: '/Debounce/DebouncedInputValue'
+      },
+      {
+        name: 'DebouncedFunction',
+        path: '/Debounce/DebouncedFunction'
+      }
+    ]
+  },
+  {
     name: 'DraggableElement',
     children: [
       {
@@ -43,6 +66,15 @@ export const hookSubmenuList = [
       {
         name: 'WindowResize',
         path: '/ResizeObserver/WindowResize'
+      }
+    ]
+  },
+  {
+    name: 'State',
+    children: [
+      {
+        name: 'TodoHistoryManager',
+        path: '/State/TodoHistoryManager'
       }
     ]
   },
@@ -65,28 +97,6 @@ export const hookSubmenuList = [
       {
         name: 'Interval',
         path: '/Timer/Interval'
-      }
-    ]
-  },
-  {
-    name: 'State',
-    children: [
-      {
-        name: 'TodoHistoryManager',
-        path: '/State/TodoHistoryManager'
-      }
-    ]
-  },
-  {
-    name: 'Debounce',
-    children: [
-      {
-        name: 'DebouncedInputValue',
-        path: '/Debounce/DebouncedInputValue'
-      },
-      {
-        name: 'DebouncedFunction',
-        path: '/Debounce/DebouncedFunction'
       }
     ]
   },

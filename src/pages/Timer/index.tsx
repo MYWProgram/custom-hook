@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useInterval from 'Utils/CustomHooks/Timer/useInterval';
+import { useInterval } from 'Utils/CustomHooks';
 import { Space, Button } from 'antd';
 
 const FunctionalTimer = () => {

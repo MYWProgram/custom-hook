@@ -1,5 +1,5 @@
 import React from 'react';
-import useInputBind, { Result } from 'Utils/CustomHooks/Bind/useInputBind';
+import { useInputBind, Result } from 'Utils/CustomHooks';
 import { Input } from 'antd';
 
 const InputBind: React.FC = (): JSX.Element => {

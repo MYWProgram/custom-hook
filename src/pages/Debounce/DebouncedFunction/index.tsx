@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useDebounceFn from 'Utils/CustomHooks/Debounce&Throttle/useDebounceFn';
+import { useDebounceFn } from 'Utils/CustomHooks';
 import { Button } from 'antd';
 
 const DebouncedFunction: React.FC = (): JSX.Element => {

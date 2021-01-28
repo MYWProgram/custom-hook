@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useHistory from 'Utils/CustomHooks/State/useHistory';
+import { useHistory } from 'Utils/CustomHooks';
 import { nanoid } from 'nanoid';
 import { Input, InputNumber, Button, Space, Card, Timeline, message } from 'antd';
 import styles from './index.module.scss';

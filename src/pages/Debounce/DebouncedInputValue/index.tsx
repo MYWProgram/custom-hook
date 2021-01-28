@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useDebounce from 'Utils/CustomHooks/Debounce&Throttle/useDebounce';
+import { useDebounce } from 'Utils/CustomHooks';
 import { Input } from 'antd';
 
 const DebouncedInputValue: React.FC = (): JSX.Element => {

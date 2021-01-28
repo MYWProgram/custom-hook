@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useVirtualList, { OptionType } from 'Utils/CustomHooks/RenderPerformance/useVirtualList';
+import { useVirtualList, OptionType } from 'Utils/CustomHooks';
 import { Input, Button } from 'antd';
 import styles from './index.module.scss';
 

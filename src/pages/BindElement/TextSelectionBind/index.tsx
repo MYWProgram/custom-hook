@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useTextSelection, { IState } from 'Utils/CustomHooks/Bind/useTextSelection';
+import { useTextSelection, IState } from 'Utils/CustomHooks';
 
 const TextSelectionBind: React.FC = (): JSX.Element => {
   const { text, top, left, bottom, right, height, width }: IState = useTextSelection();

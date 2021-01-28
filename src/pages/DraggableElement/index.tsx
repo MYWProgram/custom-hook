@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
-import useDrag from 'Utils/CustomHooks/Draggable/useDrag';
-import useDrop, { DropAreaOptions } from 'Utils/CustomHooks/Draggable/useDrop';
+import { useDrag, useDrop, DropAreaOptions } from 'Utils/CustomHooks';
 import { nanoid } from 'nanoid';
 import { Button, message } from 'antd';
 import styles from './index.module.scss';

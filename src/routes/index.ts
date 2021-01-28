@@ -14,12 +14,28 @@ export const routes = [
     component: lazy(() => import(/* webpackChunkName: "useTextSelection" */ 'Pages/BindElement/TextSelectionBind'))
   },
   {
+    path: '/Dom/ClickAway',
+    component: lazy(() => import(/* webpackChunkNAme: "useClickAway" */ 'Pages/Dom/ClickAway'))
+  },
+  {
+    path: '/Debounce/DebouncedInputValue',
+    component: lazy(() => import(/* webpackChunkName: "useDebounce" */ 'Pages/Debounce/DebouncedInputValue'))
+  },
+  {
+    path: '/Debounce/DebouncedFunction',
+    component: lazy(() => import(/* webpackChunkName: "useDebounceFn" */ 'Pages/Debounce/DebouncedFunction'))
+  },
+  {
     path: '/DraggableElement/DragDrop',
     component: lazy(() => import(/* webpackChunkName: "useDragDrop" */ 'Pages/DraggableElement'))
   },
   {
     path: '/ResizeObserver/WindowResize',
     component: lazy(() => import(/* webpackChunkName: "useSize" */ 'Pages/ResizeObserver'))
+  },
+  {
+    path: '/State/TodoHistoryManager',
+    component: lazy(() => import(/* webpackChunkName: "useHistory" */ 'Pages/State'))
   },
   {
     path: '/ScrollOptions/GetEleScrollOptions',
@@ -32,18 +48,6 @@ export const routes = [
   {
     path: '/Timer/Interval',
     component: lazy(() => import(/* webpackChunkName: "useInterval" */ 'Pages/Timer'))
-  },
-  {
-    path: '/State/TodoHistoryManager',
-    component: lazy(() => import(/* webpackChunkName: "useHistory" */ 'Pages/State'))
-  },
-  {
-    path: '/Debounce/DebouncedInputValue',
-    component: lazy(() => import(/* webpackChunkName: "useDebounce" */ 'Pages/Debounce/DebouncedInputValue'))
-  },
-  {
-    path: '/Debounce/DebouncedFunction',
-    component: lazy(() => import(/* webpackChunkName: "useDebounceFn" */ 'Pages/Debounce/DebouncedFunction'))
   },
   {
     path: '/Throttle/ThrottledInputValue',

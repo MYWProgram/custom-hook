@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useThrottle from 'Utils/CustomHooks/Debounce&Throttle/useThrottle';
+import { useThrottle } from 'Utils/CustomHooks';
 import { Input } from 'antd';
 
 const ThrottledInputValue: React.FC = (): JSX.Element => {
