@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { useState, useCallback, useRef } from 'react';
+import { AList } from 'Src/types/replaceAny';
 
 interface IData<T> {
   present?: T;
@@ -49,7 +50,7 @@ const useHistory = <T>(initialValue?: T) => {
   const { present, past, future } = history;
   const initialValueRef = useRef(initialValue);
   const reset = useCallback(
-    (...params: any[]) => {
+    (...params: AList) => {
       const _initial = params.length > 0 ? params[0] : initialValueRef.current;
       initialValueRef.current = _initial;
       setHistory({

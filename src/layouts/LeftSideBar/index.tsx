@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
 import { rootSubmenuKeys, hookSubmenuList } from 'Routes/RouteConfig';
+import { Arbitrary } from 'Src/types/replaceAny';
 import styles from './index.module.scss';
 
 const { SubMenu } = Menu;
@@ -15,7 +16,7 @@ const LeftSidebar: React.FunctionComponent = (): JSX.Element => {
     window.sessionStorage.getItem('activeTabItem') || 'InputBind'
   ]);
   // ? 控制一级展开路由的方法。
-  const handleOpenChange = (keys: any) => {
+  const handleOpenChange = (keys: Arbitrary) => {
     // * 保存展开的一级菜单到 sessionStorage.
     window.sessionStorage.setItem('activeTab', keys.length > 1 ? keys[1] : keys[0]);
     // * 当前点击的一级菜单。
@@ -27,7 +28,7 @@ const LeftSidebar: React.FunctionComponent = (): JSX.Element => {
     }
   };
   // ? 保存点击的二级菜单到 sessionStorage 的方法。
-  const handleSelectItem = (item: any) => {
+  const handleSelectItem = (item: Arbitrary) => {
     window.sessionStorage.setItem('activeTabItem', item.key);
   };
   return (

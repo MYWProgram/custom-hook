@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDrag, useDrop, DropAreaOptions } from 'Utils/CustomHooks';
 import { nanoid } from 'nanoid';
 import { Button, message } from 'antd';
+import { Arbitrary } from 'Src/types/replaceAny';
 import styles from './index.module.scss';
 
 const DraggableElement = () => {
@@ -26,7 +27,7 @@ const DraggableElement = () => {
       message.success(`uri: ${uri} dropped`);
     },
     // * 拖拽自定义 dom 节点的回调。
-    onDom: (content: any, event) => {
+    onDom: (content: Arbitrary, event) => {
       console.info(content, event);
       setDropList([...dropList, content]);
       dragList.splice(
