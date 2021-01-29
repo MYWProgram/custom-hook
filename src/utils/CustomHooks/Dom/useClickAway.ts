@@ -8,7 +8,7 @@ const leftClickEvent = 'click';
 type EventType = MouseEvent | TouchEvent;
 
 /**
- * ? 管理目标元素外点击事件。
+ * ? 管理非目标元素内点击事件。
  * @param { (event) => void } onClickAway
  * @param { Target | Target[] } target
  * @param { String } eventName

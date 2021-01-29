@@ -1,9 +1,11 @@
 import useClickAway from './Dom/useClickAway';
+import useClickOutside from './Dom/useClickOutside';
 import useCheckboxBind from './Bind/useCheckboxBind';
 import useDrag from './Draggable/useDrag';
 import useDrop, { DropAreaOptions } from './Draggable/useDrop';
 import useDebounce from './Debounce&Throttle/useDebounce';
 import useDebounceFn from './Debounce&Throttle/useDebounceFn';
+import useDocumentEvent from './toolHooks/useDocumentEvent';
 import useHistory from './State/useHistory';
 import useInterval from './Timer/useInterval';
 import useInputBind, { Result } from './Bind/useInputBind';
@@ -18,11 +20,13 @@ export type { DropAreaOptions, IState, OptionType, Result, Size };
 
 export {
   useClickAway,
+  useClickOutside,
   useCheckboxBind,
   useDrag,
   useDrop,
   useDebounce,
   useDebounceFn,
+  useDocumentEvent,
   useHistory,
   useInterval,
   useInputBind,

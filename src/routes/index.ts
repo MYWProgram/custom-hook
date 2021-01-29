@@ -18,6 +18,10 @@ export const routes = [
     component: lazy(() => import(/* webpackChunkNAme: "useClickAway" */ 'Pages/Dom/ClickAway'))
   },
   {
+    path: '/Dom/ClickOutside',
+    component: lazy(() => import(/* webpackChunkName: "useClickOutside" */ 'Pages/Dom/ClickOutside'))
+  },
+  {
     path: '/Debounce/DebouncedInputValue',
     component: lazy(() => import(/* webpackChunkName: "useDebounce" */ 'Pages/Debounce/DebouncedInputValue'))
   },
