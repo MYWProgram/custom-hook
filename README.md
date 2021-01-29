@@ -1,6 +1,12 @@
-# react-ts-template
+# custom-hook
 
-## ESLint
+记录`react`开发过程中用于提升工作效率的自定义`hooks`，同时也是配合`ts`使用`react`的摸索实践。项目使用自建模板搭建，模板介绍如下：
+
+## react-ts-template
+
+使用`webpack`各种插件一步步搭建的模板。
+
+### ESLint
 
 - 一些插件介绍
 
@@ -14,7 +20,7 @@
 
 1. 配置`.eslintignore`文件来忽略 TS 对一些文件或文件夹的检查。
 
-## stylelint
+### stylelint
 
 - 一些插件介绍
 
@@ -22,7 +28,7 @@
 2. `stylelint-declaration-block-no-ignored-properties`提示书写样式的矛盾，比如重复的样式，或者无效的样式；
 3. `stylelint-config-prettier`解决 stylelint 和 Prettier 的规范冲突。
 
-## 提交代码前的规范
+### 提交代码前的规范
 
 - 一些插件介绍
 
@@ -35,11 +41,11 @@
 
 1. 插件安装完成后在`package.json`文件中进行对应的配置。
 
-## externals
+### externals
 
 模板中使用 CDN 加载了 react 和 react-dom，在普通的项目模板中这样使用 CDN 没有问题，但是如果需要发布到`npm`以供别人使用，就不能使用这样的方式，因为当其他人执行`npm install`后这种方式会确实 react 和 react-dom 这两个依赖；**一定要注意！**
 
-## webpack
+### webpack
 
 1. `webpack-merge`合并 webpack 配置文件，方便简化 dev 和 prod 配置；
 2. `cross-env`跨平台设置，使用环境变量；比如 Mac 电脑上使用`export NODE_ENV=development`，而 Windows 电脑上使用的是`set NODE_ENV=development`；安装完成之后在`package.json`文件中修改对应 scripts 即可；
