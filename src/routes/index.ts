@@ -38,8 +38,12 @@ export const routes = [
     component: lazy(() => import(/* webpackChunkName: "useSize" */ 'Pages/ResizeObserver'))
   },
   {
+    path: '/State/EventEmitter',
+    component: lazy(() => import(/* webpackChunkName: "useEventEmitter" */ 'Pages/State/EventEmitter'))
+  },
+  {
     path: '/State/TodoHistoryManager',
-    component: lazy(() => import(/* webpackChunkName: "useHistory" */ 'Pages/State'))
+    component: lazy(() => import(/* webpackChunkName: "useHistory" */ 'Src/pages/State/TodoHistoryManager'))
   },
   {
     path: '/ScrollOptions/GetEleScrollOptions',

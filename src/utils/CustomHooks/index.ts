@@ -6,6 +6,7 @@ import useDrop, { DropAreaOptions } from './Draggable/useDrop';
 import useDebounce from './Debounce&Throttle/useDebounce';
 import useDebounceFn from './Debounce&Throttle/useDebounceFn';
 import useDocumentEvent from './toolHooks/useDocumentEvent';
+import { Emitter, useEventEmitter } from './State/useEventEmitter';
 import useHistory from './State/useHistory';
 import useInterval from './Timer/useInterval';
 import useInputBind, { Result } from './Bind/useInputBind';
@@ -18,6 +19,8 @@ import useVirtualList, { OptionType } from './RenderPerformance/useVirtualList';
 
 export type { DropAreaOptions, IState, OptionType, Result, Size };
 
+export { Emitter };
+
 export {
   useClickAway,
   useClickOutside,
@@ -27,6 +30,7 @@ export {
   useDebounce,
   useDebounceFn,
   useDocumentEvent,
+  useEventEmitter,
   useHistory,
   useInterval,
   useInputBind,

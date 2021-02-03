@@ -79,6 +79,10 @@ export const hookSubmenuList = [
       {
         name: 'TodoHistoryManager',
         path: '/State/TodoHistoryManager'
+      },
+      {
+        name: 'EventEmitter',
+        path: '/State/EventEmitter'
       }
     ]
   },
