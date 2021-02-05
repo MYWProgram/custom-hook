@@ -39,6 +39,10 @@ export const hookSubmenuList = [
       {
         name: 'ClickOutside',
         path: '/Dom/ClickOutside'
+      },
+      {
+        name: 'KeyPress',
+        path: '/Dom/KeyPress'
       }
     ]
   },

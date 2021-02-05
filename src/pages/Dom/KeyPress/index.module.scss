@@ -1,0 +1,10 @@
+.KeyPressWrapper {
+  p {
+    span {
+      color: red;
+    }
+  }
+  :global(.anticon-check) {
+    color: red;
+  }
+}

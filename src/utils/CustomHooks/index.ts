@@ -10,6 +10,7 @@ import { Emitter, useEventEmitter } from './State/useEventEmitter';
 import useHistory from './State/useHistory';
 import useInterval from './Timer/useInterval';
 import useInputBind, { Result } from './Bind/useInputBind';
+import useKeyPress from './Dom/useKeyPress';
 import useSize, { Size } from './Observer/useSize';
 import useScroll from './Scroll/useScroll';
 import useThrottle from './Debounce&Throttle/useThrottle';
@@ -34,6 +35,7 @@ export {
   useHistory,
   useInterval,
   useInputBind,
+  useKeyPress,
   useSize,
   useScroll,
   useThrottle,
